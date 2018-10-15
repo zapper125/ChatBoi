@@ -2,29 +2,24 @@ package Model;
 
 public class ChatBot
 {
-	
-	
-	//public constructors
-	
+
+	// public constructors
+
 	public void Chatbot()
 	{
-	
+
 	}
-	
+
 	/**
-	*Getters
-	*/
-	
-	
+	 * Getters
+	 */
+
 	/**
 	 * Setters
 	 */
 
-		
-		
-
 	// private constructors
-	private void ResponceListArray()
+	private void responceListArray()
 	{
 
 	}
@@ -48,7 +43,5 @@ public class ChatBot
 	{
 		return "joke";
 	}
-	
-	
-	
+
 }
