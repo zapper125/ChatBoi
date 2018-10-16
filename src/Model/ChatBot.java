@@ -1,14 +1,8 @@
 package Model;
+import java.util.ArrayList;
 
 public class ChatBot
 {
-
-	// public constructors
-
-	public void Chatbot()
-	{
-
-	}
 
 	/**
 	 * Getters
@@ -19,29 +13,56 @@ public class ChatBot
 	 */
 
 	// private constructors
-	private void responceListArray()
+	private ArrayList <String> responceListArray;
 	{
 
 	}
 
-	private void spookListArray()
+	private ArrayList <String> spookyListArray;
 	{
 
 	}
 
-	private String content()
+	private String content;
+	private String currentUser;
+	private String joke;
+	
+	public ChatBot()
 	{
-		return "hi";
+		this.joke = "";
+		this.content = new String("");
+		this.currentUser = new String("");
+		
+		this.responceListArray = new ArrayList<String>();
+		this.spookyListArray = new ArrayList<String>();
+		
+		buildTheLists();
 	}
-
-	private String currentUser()
+	
+	private void buildTheLists()
 	{
-		return "current";
+		//responce list
+		responceListArray.add("How's it going!");
+		responceListArray.add("Thats pretty cool");
+		responceListArray.add("Nice");
+		responceListArray.add("Cool beans bro");
+		responceListArray.add("Adios mi amigo");
+		responceListArray.add("Who died?");
+		
+		//spooky doocky
+		spookyListArray.add("Ya she got cursed");
+		spookyListArray.add("SpOoKy");
+		spookyListArray.add("You shall be followed by a skeleton");
+		spookyListArray.add("It's over for you");
+		spookyListArray.add("Pumpkin Smashing");
 	}
-
-	private String joke()
+	
+	public String processText(String userText)
 	{
-		return "joke";
+		String answer = "";
+		
+		answer += "you said: " + userText;
+		
+		return answer;
 	}
-
 }
