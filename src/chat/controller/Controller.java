@@ -1,6 +1,7 @@
-package Controller;
+package chat.controller;
 import javax.swing.JOptionPane;
-import Model.ChatBot;
+
+import chat.model.ChatBot;
 
 
 public class Controller
@@ -29,7 +30,7 @@ public class Controller
 	public String interactWithBot(String text)
 	{
 		String output = "";
-		String userResponse = JOptionPane.showInputDialog(null, "Hi")
+		String userResponse = JOptionPane.showInputDialog(null, "Hi");
 		output = simpleBot.processText(userResponse);
 		
 		return output;

@@ -1,4 +1,4 @@
-package Model;
+package chat.model;
 import java.util.ArrayList;
 
 public class ChatBot

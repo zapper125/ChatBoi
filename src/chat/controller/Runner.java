@@ -1,4 +1,4 @@
-package Controller;
+package chat.controller;
 
 public class Runner
 {
