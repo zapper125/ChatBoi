@@ -8,17 +8,28 @@ public class Chatbot
 	 * Getters
 	 */
 
+	
+	public ArrayList<String> getSpookyList()
+	{
+		return SpookyList;
+	}
+	
+	public ArrayList<String> getResponseList()
+	{
+		return null;
+	}
+	
 	/**
 	 * Setters
 	 */
 
 	// private constructors
-	private ArrayList <String> responceListArray;
+	private ArrayList <String> ResponceList;
 	{
 
 	}
 
-	private ArrayList <String> spookyListArray;
+	private ArrayList <String> SpookyList;
 	{
 
 	}
@@ -33,8 +44,8 @@ public class Chatbot
 		this.content = new String("");
 		this.currentUser = new String("");
 		
-		this.responceListArray = new ArrayList<String>();
-		this.spookyListArray = new ArrayList<String>();
+		this.ResponceList = new ArrayList<String>();
+		this.SpookyList = new ArrayList<String>();
 		
 		buildTheLists();
 	}
@@ -42,19 +53,19 @@ public class Chatbot
 	private void buildTheLists()
 	{
 		//responce list
-		responceListArray.add("How's it going!");
-		responceListArray.add("Thats pretty cool");
-		responceListArray.add("Nice");
-		responceListArray.add("Cool beans bro");
-		responceListArray.add("Adios mi amigo");
-		responceListArray.add("Who died?");
+		ResponceList.add("How's it going!");
+		ResponceList.add("Thats pretty cool");
+		ResponceList.add("Nice");
+		ResponceList.add("Cool beans bro");
+		ResponceList.add("Adios mi amigo");
+		ResponceList.add("Who died?");
 		
 		//spooky doocky
-		spookyListArray.add("Ya she got cursed");
-		spookyListArray.add("SpOoKy");
-		spookyListArray.add("You shall be followed by a skeleton");
-		spookyListArray.add("It's over for you");
-		spookyListArray.add("Pumpkin Smashing");
+		SpookyList.add("Ya she got cursed");
+		SpookyList.add("SpOoKy");
+		SpookyList.add("You shall be followed by a skeleton");
+		SpookyList.add("It's over for you");
+		SpookyList.add("Pumpkin Smashing");
 	}
 	
 	public String processText(String userText)
@@ -65,4 +76,6 @@ public class Chatbot
 		
 		return answer;
 	}
+
+
 }

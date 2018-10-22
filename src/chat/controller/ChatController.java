@@ -21,13 +21,13 @@ public class ChatController
 					
 			while(!userInput.equalsIgnoreCase("quit"))
 			{
-				userInput = interactWithBot(userInput);
+				userInput = interactWithChatbot(userInput);
 			}
 	
 	}
 
 	
-	public String interactWithBot(String text)
+	public String interactWithChatbot(String text)
 	{
 		String output = "";
 		String userResponse = JOptionPane.showInputDialog(null, "Hi");
@@ -36,7 +36,7 @@ public class ChatController
 		return output;
 	}
 	
-	public String useBotCheckers(String text)
+	public String useChatbotCheckers(String text)
 	{
 		String output = "";
 		String userResponce = JOptionPane.showInputDialog(null, "Wazzzzzup");
