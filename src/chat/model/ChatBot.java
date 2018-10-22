@@ -1,7 +1,7 @@
 package chat.model;
 import java.util.ArrayList;
 
-public class ChatBot
+public class Chatbot
 {
 
 	/**
@@ -27,7 +27,7 @@ public class ChatBot
 	private String currentUser;
 	private String joke;
 	
-	public ChatBot()
+	public Chatbot()
 	{
 		this.joke = "";
 		this.content = new String("");
