@@ -63,9 +63,28 @@ public class Chatbot
 		//spooky doocky
 		SpookyList.add("Ya she got cursed");
 		SpookyList.add("SpOoKy");
-		SpookyList.add("You shall be followed by a skeleton");
+		SpookyList.add("You shall be followed by a skelington");
 		SpookyList.add("It's over for you");
 		SpookyList.add("Pumpkin Smashing");
+	}
+	
+	public Boolean legitimacyChecker(String input)
+	{
+		boolean isValid = true;
+		if (input == null )
+		{
+			isValid = false;
+		}
+		else if(input.length() <2)
+		{
+			isValid = false;
+		}
+		else if(input.contains("sdf") || input.contains("cvb"))
+		{
+			isValid = false;
+		}
+		
+		return isValid;
 	}
 	
 	public String processText(String userText)
