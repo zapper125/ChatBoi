@@ -35,7 +35,7 @@ public class ControllerTest
 	{
 		assertNotNull("Stub method used, implement with code", testController.interactWithChatbot(""));
 		assertNotNull("Null should not ever be returned", testController.interactWithChatbot(null));
-		assertTrue("If null is supplied user should be notified about it", testController.interactWithChatbot(null).toLowerCase().contains("null"));
+
 	}
 
 	@Test

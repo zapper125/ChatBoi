@@ -1,5 +1,7 @@
 package chat.model;
+
 import java.util.ArrayList;
+
 
 public class Chatbot
 {
@@ -8,28 +10,37 @@ public class Chatbot
 	 * Getters
 	 */
 
-	
 	public ArrayList<String> getSpookyList()
 	{
 		return SpookyList;
 	}
-	
+
 	public ArrayList<String> getResponseList()
 	{
-		return null;
+		return ResponseList;
 	}
-	
+
+	public String getContent()
+	{
+		return content;
+	}
+
+	public String getCurrentUser()
+	{
+		return currentUser;
+	}
+
 	/**
 	 * Setters
 	 */
 
 	// private constructors
-	private ArrayList <String> ResponceList;
+	private ArrayList<String> ResponseList;
 	{
-
+		
 	}
 
-	private ArrayList <String> SpookyList;
+	private ArrayList<String> SpookyList;
 	{
 
 	}
@@ -37,64 +48,109 @@ public class Chatbot
 	private String content;
 	private String currentUser;
 	private String joke;
-	
+
 	public Chatbot()
 	{
 		this.joke = "";
 		this.content = new String("");
 		this.currentUser = new String("");
-		
-		this.ResponceList = new ArrayList<String>();
+
+		this.ResponseList = new ArrayList<String>();
 		this.SpookyList = new ArrayList<String>();
-		
+
 		buildTheLists();
 	}
-	
+
 	private void buildTheLists()
 	{
-		//responce list
-		ResponceList.add("How's it going!");
-		ResponceList.add("Thats pretty cool");
-		ResponceList.add("Nice");
-		ResponceList.add("Cool beans bro");
-		ResponceList.add("Adios mi amigo");
-		ResponceList.add("Who died?");
-		
-		//spooky doocky
+		// responce list
+		ResponseList.add("Hello");
+		ResponseList.add("Thats pretty cool");
+		ResponseList.add("Nice");
+		ResponseList.add("Cool beans bro");
+		ResponseList.add("Adios mi amigo");
+		ResponseList.add("Who died?");
+		ResponseList.add("a");
+		ResponseList.add("s");
+		ResponseList.add("d");
+		ResponseList.add("f");
+		ResponseList.add("g");
+		ResponseList.add("h");
+		ResponseList.add("j");
+		ResponseList.add("k");
+		ResponseList.add("l");
+		ResponseList.add(";");
+
+		// spooky doocky
+		SpookyList.add("Halloween");
 		SpookyList.add("Ya she got cursed");
 		SpookyList.add("SpOoKy");
 		SpookyList.add("You shall be followed by a skelington");
 		SpookyList.add("It's over for you");
 		SpookyList.add("Pumpkin Smashing");
+		SpookyList.add("s");
+		SpookyList.add("d");
+		SpookyList.add("f");
 	}
-	
+
 	public Boolean legitimacyChecker(String input)
 	{
 		boolean isValid = true;
-		if (input == null )
+		if (input == null)
+		{
+			isValid = false;
+		} 
+		else if (input.length() < 1)
+		{
+			isValid = false;
+		} 
+		else if (input.contains("sdf") || input.contains("cvb"))
 		{
 			isValid = false;
 		}
-		else if(input.length() <2)
-		{
-			isValid = false;
-		}
-		else if(input.contains("sdf") || input.contains("cvb"))
-		{
-			isValid = false;
-		}
-		
+
 		return isValid;
 	}
-	
+
+	public Boolean contentChecker(String input)
+	{ 
+		
+		
+		return true;
+	}
+
+	public Boolean spookyChecker(String userText)
+	{
+		if (userText.contains("Halloween"))
+			return true;
+		if (userText.contains("Easter"))
+			return false;
+		for (String Phrase : SpookyList)
+		{
+			if (userText.contains(Phrase))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public Chatbot(String string)
+	{
+		content = "sample content";
+	}
+
 	public String processText(String userText)
 	{
 		String answer = "";
-		
-		answer += "you said: " + userText;
-		
-		return answer;
-	}
+		String botAnswer = "";
 
+		answer += "You said: " + userText;
+
+		botAnswer += "Chatbot says: " + ResponseList;
+
+		return answer + botAnswer;
+
+	}
 
 }

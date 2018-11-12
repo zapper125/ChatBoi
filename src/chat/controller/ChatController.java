@@ -8,7 +8,7 @@ public class ChatController
 {
 	private Chatbot simpleBot;
 
-	public  void Controller()
+	public ChatController()
 	{
 		simpleBot = new Chatbot();
 	}
@@ -22,6 +22,7 @@ public class ChatController
 			while(!userInput.equalsIgnoreCase("quit"))
 			{
 				userInput = interactWithChatbot(userInput);
+				System.exit(0);
 			}
 	
 	}
@@ -30,18 +31,21 @@ public class ChatController
 	public String interactWithChatbot(String text)
 	{
 		String output = "";
-		String userResponse = JOptionPane.showInputDialog(null, "Hi");
-		output = simpleBot.processText(userResponse);
+		String userResponce = JOptionPane.showInputDialog(null, "Hi");
+		text = userResponce;
+		if (text == null)
+		{
+			JOptionPane.showMessageDialog(null, "input a value");
+		}
+	
+		return text;
 		
-		return output;
 	}
 	
 	public String useChatbotCheckers(String text)
 	{
-		String output = "";
-		String userResponce = JOptionPane.showInputDialog(null, "Wazzzzzup");
-		
-		return output;
+		if (text.contains("spooky"));
+		return text;
 	}
 	
 	public Chatbot getChatbot()
