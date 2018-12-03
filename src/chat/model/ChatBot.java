@@ -1,11 +1,11 @@
 package chat.model;
 
 import java.util.ArrayList;
+import chat.View.ChatFrame;
 
 
 public class Chatbot
 {
-
 	/**
 	 * Getters
 	 */
@@ -112,35 +112,29 @@ public class Chatbot
 		return isValid;
 	}
 
-	public boolean contentChecker(String userText) {
-        boolean isContent = false;
-        // String text = "words";
-
-        if (userText.contains(" " + content + " ")) {
-            isContent = true;
-        }
-
-        else if (userText.contains("You said the special words")) {
-            isContent = true;
-        }
-
-        else if (userText.equals(content)) {
-            isContent = true;
-        }
-
-        else if (getContent() != "") {
-            isContent = false;
-        }
-
-        else if (!userText.contains(" " + getContent())) {
-            isContent = false;
-        }
-
-        else if (userText == null) {
-            isContent = false;
-        }
-        return isContent;
-    }
+	  public boolean contentChecker(String userText) {
+	        boolean isContent = false;
+	        // String text = "words";
+	        if (userText.contains(" " + content + " ")) {
+	            isContent = true;
+	        }
+	        else if (userText.contains("You said the special words")) {
+	            isContent = true;
+	        }
+	        else if (userText.equals(content)) {
+	            isContent = true;
+	        }
+	        else if (getContent() != "") {
+	            isContent = false;
+	        }
+	        else if (!userText.contains(" " + getContent())) {
+	            isContent = false;
+	        }
+	        else if (userText == null) {
+	            isContent = false;
+	        }
+	        return isContent;
+	    }
 
 	public Boolean spookyChecker(String userText)
 	{

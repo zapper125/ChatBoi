@@ -1,11 +1,14 @@
 package chat.controller;
 import javax.swing.JOptionPane;
 
+import chat.View.ChatFrame;
 import chat.model.Chatbot;
 
 
 public class ChatController
 {
+	
+	private ChatFrame appFrame; 
 	private Chatbot simpleBot;
 
 	public ChatController()
@@ -42,11 +45,21 @@ public class ChatController
 		
 	}
 	
-	public String useChatbotCheckers(String text)
-	{
-		if (text.contains("spooky"));
-		return text;
-	}
+	 public String useChatbotCheckers(String Text)
+	    {
+	        String testedChecker = "these checkers passed:";
+	        if (simpleBot.contentChecker(Text))
+	        {
+	            testedChecker += "\nContent Checker";
+	        }
+	        if (simpleBot.spookyChecker(Text))
+	        {
+	            testedChecker += "Halloween";
+	        }
+	        return testedChecker;
+	            
+	        
+	    }
 	
 	public Chatbot getChatbot()
 	{
