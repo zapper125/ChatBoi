@@ -19,8 +19,11 @@ public class ChatFrame extends JFrame
 
 	private void setupFrame()
 	{
-		// TODO Auto-generated method stub
-		
+		this.setContentPane(appPanel);
+		this.setSize(800, 800);
+		this.setTitle("hmmmmmm");
+		this.setResizable(true);
+		this.setVisible(true);
 	}
 	
 	

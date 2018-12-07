@@ -14,19 +14,11 @@ public class ChatController
 	public ChatController()
 	{
 		simpleBot = new Chatbot();
+		appFrame = new ChatFrame(this);
 	}
 
 	public void start()
 	{
-		//String UserInput = "";
-		
-			String userInput = "";
-					
-			while(!userInput.equalsIgnoreCase("quit"))
-			{
-				userInput = interactWithChatbot(userInput);
-				System.exit(0);
-			}
 	
 	}
 
@@ -34,15 +26,8 @@ public class ChatController
 	public String interactWithChatbot(String text)
 	{
 		String output = "";
-		String userResponce = JOptionPane.showInputDialog(null, "Hi");
-		text = userResponce;
-		if (text == null)
-		{
-			JOptionPane.showMessageDialog(null, "input a value");
-		}
-	
-		return text;
-		
+		output += simpleBot.processText(text);
+		return output;
 	}
 	
 	 public String useChatbotCheckers(String Text)

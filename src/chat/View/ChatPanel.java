@@ -35,6 +35,7 @@ public class ChatPanel extends JPanel
 		chatPane = new JScrollPane();
 		
 		
+		
 		setupScrollPane();
 		setupPanel();
 		setupLayout();
@@ -86,18 +87,30 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.EAST, chatButton, 0, SpringLayout.EAST, chatPane);
 		appLayout.putConstraint(SpringLayout.NORTH, chatButton, 42, SpringLayout.SOUTH, chatField);
 		
+		//checker button 
+		appLayout.putConstraint(SpringLayout.WEST, checkerButton, 0, SpringLayout.WEST, chatPane);
+		appLayout.putConstraint(SpringLayout.NORTH, checkerButton, 0, SpringLayout.NORTH, chatButton);
+		
 		//save button 
 		appLayout.putConstraint(SpringLayout.NORTH, saveButton, 0, SpringLayout.NORTH, chatButton);
 		appLayout.putConstraint(SpringLayout.EAST, saveButton, -125, SpringLayout.WEST, chatButton);
-		
-		//check text button 
-		appLayout.putConstraint(SpringLayout.WEST, checkerButton, 0, SpringLayout.WEST, chatPane);
 		
 	}
 	
 	private void setupListeners()
 	{
-		
+		chatButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String input = chatField.getText();
+				String output = "";
+				output = appController.interactWithChatbot(input);
+				chatArea.append(output);
+				chatField.setText("");
+				chatArea.setCaretPosition(chatArea.getDocument().getLength());
+			}
+		});
 	}
 	
 	

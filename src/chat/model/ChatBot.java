@@ -160,14 +160,27 @@ public class Chatbot
 	public String processText(String userText)
 	{
 		String answer = "";
-		String botAnswer = "";
-
-		answer += "You said: " + userText;
-
-		botAnswer += "Chatbot says: " + ResponseList;
-
-		return answer + botAnswer;
+		
+		if (!contentChecker(userText))
+		{
+			answer += "You really should not send null\n";
+		}
+		else
+		{
+			answer += "you said " + userText + "\n";
+			
+			if (contentChecker(userText))
+			{
+				answer += "You said the special words.\n";
+			}
+			int randomIndex = (int) (ResponseList.size() * Math.random());
+			answer += "Chatbot says:" + ResponseList.get(randomIndex) + "\n";
+			}
+		return answer;
+		}
+		
+		
 
 	}
 
-}
+
