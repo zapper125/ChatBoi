@@ -33,7 +33,7 @@ public class ChatPanel extends JPanel
 		loadButton = new JButton("Load");
 		checkerButton = new JButton("Check Text");
 		chatButton = new JButton("Chat");
-		resetButton = new JButton("Load");
+		resetButton = new JButton("Reset");
 		chatField = new JTextField("Talk to the bot here");
 		chatArea = new JTextArea("Chat area", 20, 50);
 		chatPane = new JScrollPane();
@@ -68,6 +68,31 @@ public class ChatPanel extends JPanel
 		chatPane.setViewportView(chatArea);
 		chatPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		chatPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+	}
+	
+	private String getPath(String choice)
+	{
+		String path = ".";
+		int result = - 99 ; 
+		JFileChooser fileChooser = new JFileChooser();
+		if(choice.equals("save"))
+		{
+			fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			result = fileChooser.showSaveDialog(this);
+			if(result == JFileChooser.APPROVE_OPTION)
+			{
+				path = fileChooser.getCurrentDirectory().getAbsolutePath();
+			}
+		}
+		else
+		{
+			result = fileChooser.showOpenDialog(this);
+			if(result == JFileChooser.APPROVE_OPTION)
+			{
+				path = fileChooser.getSelectedFile().getAbsolutePath();
+			}
+		}
+		return path;
 	}
 
 	private void setupLayout()
@@ -120,7 +145,9 @@ public class ChatPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				
+				String path = getPath("load");
+				String chatText = IOController.loadFile(appController, path);
+				chatArea.setText(chatText);
 			}	
 		});
 		
@@ -129,8 +156,8 @@ public class ChatPanel extends JPanel
 		public void actionPerformed(ActionEvent click)
 		{
 			String chatText = chatArea.getText();
-			String path = "";
-			IOController.saveText(appController,  path,  chatText);
+			String path = ".";
+			IOController.saveText(appController, path, chatText);
 			chatArea.setText("Chat saved!");
 		}	
 		});
@@ -148,9 +175,7 @@ public class ChatPanel extends JPanel
 		public void actionPerformed(ActionEvent click)
 		{
 			
-		{	
-		});
-		
-	}
-		
+		}	
+		});	
 		}
+	}

@@ -32,7 +32,7 @@ public class ChatController
 	
 	 public String useChatbotCheckers(String Text)
 	    {
-	        String testedChecker = "these checkers passed:";
+	        String testedChecker = "these checkers passed:" + "\n";
 	        if (simpleBot.contentChecker(Text))
 	        {
 	            testedChecker += "\nContent Checker";
@@ -45,6 +45,21 @@ public class ChatController
 	            
 	        
 	    }
+	 
+	 private void close()
+	 {
+		 System.exit(0);
+	 }
+	 
+	 public  void handleErrors(Exception error)
+	 {
+		JOptionPane.showMessageDialog(appFrame,  error.getMessage()); 
+	 }
+	 
+	 public ChatFrame getAppFrame()
+	 {
+		 return appFrame;
+	 }
 	
 	public Chatbot getChatbot()
 	{

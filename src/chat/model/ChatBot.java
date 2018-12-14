@@ -70,27 +70,28 @@ public class Chatbot
 		ResponseList.add("Cool beans bro");
 		ResponseList.add("Adios mi amigo");
 		ResponseList.add("Who died?");
-		ResponseList.add("a");
-		ResponseList.add("s");
-		ResponseList.add("d");
-		ResponseList.add("f");
-		ResponseList.add("g");
-		ResponseList.add("h");
-		ResponseList.add("j");
-		ResponseList.add("k");
-		ResponseList.add("l");
-		ResponseList.add(";");
+		ResponseList.add("your mom's gay");
+		ResponseList.add("hmmmmmm");
+		ResponseList.add("smash?");
+		ResponseList.add("gavin likes minions");
+		ResponseList.add("check out zach's poems!!");
+		ResponseList.add("gavin likes zach's poems!");
+		ResponseList.add("Is this ez mode?");
+		ResponseList.add("Is gay an object?");
+		ResponseList.add("zucc's water");
+		ResponseList.add("I thirst");
+		ResponseList.add("Is Mayonnaise a instrament");
 
-		// spooky doocky
+		// spooky docky
 		SpookyList.add("Halloween");
 		SpookyList.add("Ya she got cursed");
 		SpookyList.add("SpOoKy");
 		SpookyList.add("You shall be followed by a skelington");
 		SpookyList.add("It's over for you");
 		SpookyList.add("Pumpkin Smashing");
-		SpookyList.add("s");
-		SpookyList.add("d");
-		SpookyList.add("f");
+		SpookyList.add("Wiggly Fingers");
+		SpookyList.add("*DABS*");
+		SpookyList.add("The cowboys Are bad!");
 	}
 
 	public Boolean legitimacyChecker(String input)
@@ -161,7 +162,7 @@ public class Chatbot
 	{
 		String answer = "";
 		
-		if (!contentChecker(userText))
+		if (contentChecker(userText))
 		{
 			answer += "You really should not send null\n";
 		}
