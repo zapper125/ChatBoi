@@ -3,7 +3,6 @@ package chat.model;
 import java.util.ArrayList;
 import chat.View.ChatFrame;
 
-
 public class Chatbot
 {
 	/**
@@ -37,7 +36,7 @@ public class Chatbot
 	// private constructors
 	private ArrayList<String> ResponseList;
 	{
-		
+
 	}
 
 	private ArrayList<String> SpookyList;
@@ -100,12 +99,10 @@ public class Chatbot
 		if (input == null)
 		{
 			isValid = false;
-		} 
-		else if (input.length() < 1)
+		} else if (input.length() < 1)
 		{
 			isValid = false;
-		} 
-		else if (input.contains("sdf") || input.contains("cvb"))
+		} else if (input.contains("sdf") || input.contains("cvb"))
 		{
 			isValid = false;
 		}
@@ -113,29 +110,31 @@ public class Chatbot
 		return isValid;
 	}
 
-	  public boolean contentChecker(String userText) {
-	        boolean isContent = false;
-	        // String text = "words";
-	        if (userText.contains(" " + content + " ")) {
-	            isContent = true;
-	        }
-	        else if (userText.contains("You said the special words")) {
-	            isContent = true;
-	        }
-	        else if (userText.equals(content)) {
-	            isContent = true;
-	        }
-	        else if (getContent() != "") {
-	            isContent = false;
-	        }
-	        else if (!userText.contains(" " + getContent())) {
-	            isContent = false;
-	        }
-	        else if (userText == null) {
-	            isContent = false;
-	        }
-	        return isContent;
-	    }
+	public boolean contentChecker(String userText)
+	{
+		boolean isContent = false;
+		// String text = "words";
+		if (userText.contains(" " + content + " "))
+		{
+			isContent = true;
+		} else if (userText.contains("You said the special words"))
+		{
+			isContent = true;
+		} else if (userText.equals(content))
+		{
+			isContent = true;
+		} else if (getContent() != "")
+		{
+			isContent = false;
+		} else if (!userText.contains(" " + getContent()))
+		{
+			isContent = false;
+		} else if (userText == null)
+		{
+			isContent = false;
+		}
+			return isContent;
+	}
 
 	public Boolean spookyChecker(String userText)
 	{
@@ -161,27 +160,22 @@ public class Chatbot
 	public String processText(String userText)
 	{
 		String answer = "";
-		
+
 		if (contentChecker(userText))
 		{
 			answer += "You really should not send null\n";
-		}
-		else
+		} else
 		{
 			answer += "you said " + userText + "\n";
-			
+
 			if (contentChecker(userText))
 			{
 				answer += "You said the special words.\n";
 			}
 			int randomIndex = (int) (ResponseList.size() * Math.random());
 			answer += "Chatbot says:" + ResponseList.get(randomIndex) + "\n";
-			}
-		return answer;
 		}
-		
-		
-
+		return answer;
 	}
 
-
+}
