@@ -26,7 +26,7 @@ public class ChatPanel extends JPanel
 	private JPanel buttonPanel;
 	private JButton TweetButton;
 	private JButton searchTwitterButton;
-	
+
 	private ImageIcon chatIcon;
 	private ImageIcon saveIcon;
 	private ImageIcon loadIcon;
@@ -40,7 +40,7 @@ public class ChatPanel extends JPanel
 		super();
 		this.appController = appController;
 		appLayout = new SpringLayout();
-		
+
 		saveIcon = new ImageIcon(getClass().getResource("/chat/view/images/GrinchMega.jpg"));
 		chatIcon = new ImageIcon(getClass().getResource("/chat/view/images/2LegCat.jpeg"));
 		loadIcon = new ImageIcon(getClass().getResource("/chat/view/images/Konky Dong.jpg"));
@@ -57,11 +57,11 @@ public class ChatPanel extends JPanel
 		chatField = new JTextField("Talk to the bot here");
 		chatArea = new JTextArea("Chat area", 20, 50);
 		chatPane = new JScrollPane();
-		
+
 		TweetButton = new JButton("Send Tweet", tweetIcon);
 		searchTwitterButton = new JButton("search Twitter", searchIcon);
-		
-		buttonPanel = new JPanel(new GridLayout(1,0));
+
+		buttonPanel = new JPanel(new GridLayout(1, 0));
 		appLayout.putConstraint(SpringLayout.NORTH, buttonPanel, 6, SpringLayout.SOUTH, chatField);
 		appLayout.putConstraint(SpringLayout.EAST, buttonPanel, -10, SpringLayout.EAST, chatField);
 
@@ -100,25 +100,24 @@ public class ChatPanel extends JPanel
 		chatPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		chatPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 	}
-	
+
 	private String getPath(String choice)
 	{
 		String path = ".";
-		int result = - 99 ; 
+		int result = -99;
 		JFileChooser fileChooser = new JFileChooser();
-		if(choice.equals("save"))
+		if (choice.equals("save"))
 		{
 			fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 			result = fileChooser.showSaveDialog(this);
-			if(result == JFileChooser.APPROVE_OPTION)
+			if (result == JFileChooser.APPROVE_OPTION)
 			{
 				path = fileChooser.getCurrentDirectory().getAbsolutePath();
 			}
-		}
-		else
+		} else
 		{
 			result = fileChooser.showOpenDialog(this);
-			if(result == JFileChooser.APPROVE_OPTION)
+			if (result == JFileChooser.APPROVE_OPTION)
 			{
 				path = fileChooser.getSelectedFile().getAbsolutePath();
 			}
@@ -128,16 +127,16 @@ public class ChatPanel extends JPanel
 
 	private void setupLayout()
 	{
-		//chat box
+		// chat box
 		appLayout.putConstraint(SpringLayout.NORTH, chatPane, 50, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, chatPane, 50, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.EAST, chatPane, -50, SpringLayout.EAST, this);
-		
-		//talk to bot here
+
+		// talk to bot here
 		appLayout.putConstraint(SpringLayout.NORTH, chatField, 38, SpringLayout.SOUTH, chatPane);
 		appLayout.putConstraint(SpringLayout.WEST, chatField, 0, SpringLayout.WEST, chatPane);
 		appLayout.putConstraint(SpringLayout.EAST, chatField, 0, SpringLayout.EAST, chatPane);
-		
+
 	}
 
 	private void setupButtonPanel()
@@ -150,7 +149,7 @@ public class ChatPanel extends JPanel
 		buttonPanel.add(resetButton);
 		buttonPanel.add(searchTwitterButton);
 	}
-	
+
 	private void setupListeners()
 	{
 		chatButton.addActionListener(new ActionListener()
@@ -203,5 +202,15 @@ public class ChatPanel extends JPanel
 			
 		}	
 		});	
-		}
+	
+		TweetButton.addActionListener(new ActionListener()
+		{
+
+			public void actionPerformed(ActionEvent click)
+			{
+				String tweetToText = chatField.getText().trim();
+				appController.tweet(tweetToText);
+			}
+		});
 	}
+}
