@@ -63,6 +63,7 @@ public class ChatPanel extends JPanel
 
 		buttonPanel = new JPanel(new GridLayout(1, 0));
 		appLayout.putConstraint(SpringLayout.NORTH, buttonPanel, 6, SpringLayout.SOUTH, chatField);
+		appLayout.putConstraint(SpringLayout.WEST, buttonPanel, 10, SpringLayout.WEST, chatField);
 		appLayout.putConstraint(SpringLayout.EAST, buttonPanel, -10, SpringLayout.EAST, chatField);
 
 		setupScrollPane();
@@ -79,12 +80,8 @@ public class ChatPanel extends JPanel
 		this.setPreferredSize(new Dimension(1024, 768));
 		this.setBackground(Color.RED);
 		this.add(chatPane);
-		this.add(chatButton);
-		this.add(saveButton);
-		this.add(loadButton);
-		this.add(checkerButton);
 		this.add(chatField);
-		this.add(resetButton);
+
 		buttonPanel.setPreferredSize(new Dimension(900, 150));
 		buttonPanel.setBackground(Color.GRAY);
 		this.add(buttonPanel);
@@ -211,6 +208,16 @@ public class ChatPanel extends JPanel
 				String tweetToText = chatField.getText().trim();
 				appController.tweet(tweetToText);
 			}
+		});
+		
+		searchTwitterButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String username = chatField.getText().trim();
+				String display = appController.findWord(username);
+				chatArea.append("\n\n" + display);
+			}	
 		});
 	}
 }
